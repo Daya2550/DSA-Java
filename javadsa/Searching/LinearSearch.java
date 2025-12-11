@@ -3,6 +3,8 @@ package javadsa.Searching;
 import java.util.Scanner;
 
 public class LinearSearch {
+    // Linear Search implementation
+
     Scanner sc = new Scanner(System.in);
     int[] arr = new int[100];
     int target;
@@ -18,10 +20,12 @@ public class LinearSearch {
     
 // Linear Search Algorithm
     public int ToSearch(int[] arr, int size, int target) {
+        // base case for empty array
         if(arr==null || size==0){
             System.out.println("Array is empty");
             return -1;
         }
+        // linear search through the array
         for (int i = 0; i < size; i++) {
             if (arr[i] == target) {
                 System.out.println("Element found at index: " + i + " Value: " + arr[i]);
@@ -40,7 +44,7 @@ public class LinearSearch {
 
 
 
-
+// Take initial input
 
     public void takeInput() {
         System.out.print("Enter the size of array: ");
@@ -52,13 +56,14 @@ public class LinearSearch {
         System.out.println("Successfully taken input.");
     }
 
+    // Input target to search
     public void toTakeInputSearch() {
         System.out.print("Enter the target to search: ");
         target = sc.nextInt();
         ToSearch(arr, size, target);
     }
     
-
+// Add more elements to the same array
     public void ToSamearraay() {
         System.out.print("Enter the size of new inputes: ");
         int newsize = sc.nextInt();
@@ -71,6 +76,7 @@ public class LinearSearch {
         System.out.println("Successfully added new elements.");
     }
 
+    // Main run method to execute Linear Search operations
     public void run() {
         Base base = new Base();
         base.heding("Linear Search ");

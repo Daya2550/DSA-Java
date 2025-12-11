@@ -4,36 +4,79 @@ import java.util.Scanner;
 
 import javadsa.Searching.Base;
 
-public class BubbleSort {
+public class MergeSort {
 
+  // Merge sort implementation
     int arr[] = new int[100];
     int size;
-
-
-
-
-
-    
-    // Bubble sort (same logic as your code)
-    public void ToSort() {
-        // Bubble Sort Algorithm
-        for (int i = 0; i < size - 1; i++) {
-            // Last i elements are already sorted
-            for (int j = 0; j < size - i - 1; j++) { 
-                // Swap if the element found is greater than the next element
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
+ 
+    public  void divide(int a[], int st ,int ed){
+      // base case for single element array or empty array
+        if(st>=ed){
+            return;
         }
+
+        // finding mid point
+        int mid = (st+ed)/2;
+
+        // recursive calls to divide array into halves
+        divide(a,st,mid);
+        divide(a,mid+1,ed);
+
+        // merging 2 sorted halves
+        conquer(a,st,mid,ed);
+
+    }
+
+
+
+    public  void conquer(int arr[], int st ,int mid ,int ed){
+      // temporary array
+      int meg[]=new int[ed-st+1];
+
+      int id1=st ,//  first array  starting index
+      id2=mid+1 ,// second array starting index
+      x=0;// mega array index
+
+      // merging 2 sorted array
+      while (id1<=mid && id2<=ed) {
+            if(arr[id1]<=arr[id2]){
+                meg[x++]=arr[id1++];
+            }
+            else{
+                meg[x++]=arr[id2++];
+            }
+      }
+    // if any element left in first array
+      while(id1<=mid){
+        meg[x++]=arr[id1++];
+      }
+    // if any element left in second array  
+      while( id2<=ed){
+         meg[x++]=arr[id2++];
+      }
+
+   // copy tem  array to original array
+      for(int i=0 ,j=st ;i<meg.length;i++,j++){
+        arr[j]=meg[i];
+      }
     }
 
 
 
 
-    // Display sorted array
+
+
+
+
+
+
+
+
+
+
+
+        // Display sorted array
     public void display() {
         for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + "  ");
@@ -41,7 +84,9 @@ public class BubbleSort {
         System.out.println();
     }
 
-    // Take initial input
+
+
+      // Take initial input
     public void takeInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of array: ");
@@ -71,10 +116,16 @@ public class BubbleSort {
     }
 
 
-// Main run method to execute Bubble Sort operations
+
+
+
+
+
+
+// Main run method to execute Merge Sort operations
      public void run() {
        Base base = new Base();
-       base.heding("Bubble Sort  Algorithm");
+       base.heding("Merge Sort  Algorithm");
 
         // Menu for user interaction
         int choice;
@@ -85,7 +136,7 @@ public class BubbleSort {
             System.out.println("2. Sort Array");
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
-            System.out.println("5. Information about Bubble Sort  Algorithm");
+            System.out.println("5. Information about Merge Sort  Algorithm");
             System.out.println("6. Exit");
 
             System.out.print("Enter your choice: ");
@@ -96,7 +147,7 @@ public class BubbleSort {
                     takeInput();
                     break;
                 case 2:
-                    ToSort();
+                    divide(arr,0,size-1);
                     break;
                 case 3:
                     display();
@@ -106,7 +157,7 @@ public class BubbleSort {
                     break;
                 case 5:
                    BaseSort baseSort = new BaseSort();
-                     baseSort.ToGetBubbleSortInfo();
+                     baseSort.getinfomergesort();
                     break;
                 case 6:
                     System.out.println("Exiting...");

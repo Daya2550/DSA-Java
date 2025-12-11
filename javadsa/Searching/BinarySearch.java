@@ -16,20 +16,25 @@ public class BinarySearch {
 // Binary Search Algorithm
 
     public int ToSearch(int beg, int end, int[] arr, int target) {
+        // base case for empty array
         if(arr==null || size==0){
             System.out.println("Array is empty");
             return -1;
         }
+        // base case for element not found
         if (beg > end) {
             System.out.println("Element not found");
             return -1  ;
         }
+        // finding mid point
         int mid = (beg + end) / 2;
+        // checking mid element with target
         if (arr[mid] == target) {
             System.out.println("Element found at index: " + mid + " Value: " + arr[mid]);
-
             return mid;
-        } else if (arr[mid] < target) {
+        }
+         // recursive calls to search in left or right half
+         else if (arr[mid] < target) {
             ToSearch(mid + 1, end, arr, target);
 
         } else {

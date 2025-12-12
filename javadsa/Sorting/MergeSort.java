@@ -114,7 +114,60 @@ public class MergeSort {
     }
 
 
+public void codeshow() {
+        String mergeSortCode = """
+public void divide(int a[], int st, int ed){
+    // base case for single element array or empty array
+    if(st >= ed){
+        return;
+    }
 
+    // finding mid point
+    int mid = (st + ed) / 2;
+
+    // recursive calls to divide array into halves
+    divide(a, st, mid);
+    divide(a, mid + 1, ed);
+
+    // merging 2 sorted halves
+    conquer(a, st, mid, ed);
+}
+
+public void conquer(int arr[], int st, int mid, int ed){
+    // temporary array
+    int meg[] = new int[ed - st + 1];
+
+    int id1 = st, // first array starting index
+        id2 = mid + 1, // second array starting index
+        x = 0; // mega array index
+
+    // merging 2 sorted array
+    while(id1 <= mid && id2 <= ed){
+        if(arr[id1] <= arr[id2]){
+            meg[x++] = arr[id1++];
+        } else {
+            meg[x++] = arr[id2++];
+        }
+    }
+
+    // if any element left in first array
+    while(id1 <= mid){
+        meg[x++] = arr[id1++];
+    }
+
+    // if any element left in second array
+    while(id2 <= ed){
+        meg[x++] = arr[id2++];
+    }
+
+    // copy temp array to original array
+    for(int i = 0, j = st; i < meg.length; i++, j++){
+        arr[j] = meg[i];
+    }
+}
+""";
+        System.out.println(mergeSortCode);
+    }
 
 
 
@@ -135,7 +188,8 @@ public class MergeSort {
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
             System.out.println("5. Information about Merge Sort  Algorithm");
-            System.out.println("6. Exit");
+            System.out.println("6. Show Code Snippet");
+            System.out.println("7. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -158,13 +212,16 @@ public class MergeSort {
                      baseSort.getinfomergesort();
                     break;
                 case 6:
+                    codeshow(); 
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
 
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 

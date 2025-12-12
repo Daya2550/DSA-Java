@@ -61,7 +61,7 @@ public class BubbleSort {
     }
 
 
-    
+
     // Add more elements to the same array
     public void ToSamearraay() {
         Scanner sc = new Scanner(System.in);
@@ -76,6 +76,28 @@ public class BubbleSort {
         size = size + newSize;
         System.out.println("Successfully taken input.");
     }
+
+
+        // Show code snippet
+        public void codeshow() {
+            String bubbleSortCode = """
+           public void ToSort() {
+              // Bubble Sort Algorithm
+              for (int i = 0; i < size - 1; i++) {
+              // Last i elements are already sorted
+                 for (int j = 0; j < size - i - 1; j++) { 
+                 // Swap if the element found is greater than the next element
+                 if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }""";
+            
+            System.out.println(bubbleSortCode);
+        }
 
 
 // Main run method to execute Bubble Sort operations
@@ -93,7 +115,8 @@ public class BubbleSort {
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
             System.out.println("5. Information about Bubble Sort  Algorithm");
-            System.out.println("6. Exit");
+            System.out.println("6. Show Code Snippet");
+            System.out.println("7. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -116,13 +139,16 @@ public class BubbleSort {
                      baseSort.ToGetBubbleSortInfo();
                     break;
                 case 6:
+                    codeshow();
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
 
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 

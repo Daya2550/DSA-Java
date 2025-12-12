@@ -83,6 +83,41 @@ public class BinarySearch {
         System.out.println("Successfully taken input.");
     }
 
+
+    public void codeshow(){
+        String binarySearchCode = """
+        
+    public int ToSearch(int beg, int end, int[] arr, int target) {
+        // base case for empty array
+        if(arr==null || size==0){
+            System.out.println("Array is empty");
+            return -1;
+        }
+        // base case for element not found
+        if (beg > end) {
+            System.out.println("Element not found");
+            return -1  ;
+        }
+        // finding mid point
+        int mid = (beg + end) / 2;
+        // checking mid element with target
+        if (arr[mid] == target) {
+            System.out.println("Element found at index: " + mid + " Value: " + arr[mid]);
+            return mid;
+        }
+         // recursive calls to search in left or right half
+         else if (arr[mid] < target) {
+            ToSearch(mid + 1, end, arr, target);
+
+        } else {
+            ToSearch(beg, mid - 1, arr, target);
+        }
+        return -1;
+    }
+"""
+        ;
+        System.out.println(binarySearchCode);
+    }
     public void run() {
        Base base = new Base();
        base.heding("Binary Search Algorithm");
@@ -97,7 +132,8 @@ public class BinarySearch {
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
             System.out.println("5. Information about Binary Search Algorithm");
-            System.out.println("6. Exit");
+            System.out.println("6. Show Code Snippet");
+            System.out.println("7. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -120,13 +156,16 @@ public class BinarySearch {
                     
                     break;
                 case 6:
+                    codeshow();
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
 
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 }

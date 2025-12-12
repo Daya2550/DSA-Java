@@ -76,6 +76,30 @@ public class LinearSearch {
         System.out.println("Successfully added new elements.");
     }
 
+    public void codeshow(){
+        String linearSearchCode = """
+           public int ToSearch(int[] arr, int size, int target) {
+        // base case for empty array
+        if(arr==null || size==0){
+            System.out.println("Array is empty");
+            return -1;
+        }
+        // linear search through the array
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == target) {
+                System.out.println("Element found at index: " + i + " Value: " + arr[i]);
+                return i;
+            }
+        }
+        System.out.println("Element not found");
+        return -1;
+    }
+
+         """
+                ;
+                System.out.println(linearSearchCode);
+    }
+
     // Main run method to execute Linear Search operations
     public void run() {
         Base base = new Base();
@@ -89,7 +113,8 @@ public class LinearSearch {
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
             System.out.println("5. Information about Linear Search Algorithm");
-            System.out.println("6. Exit");
+            System.out.println( "6. Show Code Snippet");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
@@ -109,13 +134,18 @@ public class LinearSearch {
                 case 5:
                     base.toGetLinearSearchInfo();
                     break;
+
                 case 6:
+                    codeshow();
+                    break;
+
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 

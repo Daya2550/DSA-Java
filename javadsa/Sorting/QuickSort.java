@@ -85,6 +85,40 @@ public  int part(int arr[], int st, int ed){
         System.out.println("Successfully taken input.");
     }
 
+    public void codeshow(){
+        String quickSortCode = """
+public void Sort(int arr[], int st, int ed){
+    if(st < ed){
+        int p = part(arr, st, ed);
+        Sort(arr, st, p - 1);
+        Sort(arr, p + 1, ed);
+    }
+}
+
+public int part(int arr[], int st, int ed){
+    int i = st - 1;
+    int p = arr[ed];
+
+    for(int j = st; j < ed; j++){
+        if(arr[j] < p){
+            i++;
+            int t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
+    i++;
+
+    int t = arr[i];
+    arr[i] = p;
+    arr[ed] = t;
+
+    return i;
+}
+""";
+        System.out.println(quickSortCode);
+    }
+
 
 // Main run method to execute Merge Sort operations
      public void run() {
@@ -101,7 +135,8 @@ public  int part(int arr[], int st, int ed){
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
             System.out.println("5. Information about Merge Sort  Algorithm");
-            System.out.println("6. Exit");
+            System.out.println("6. Show Code Snippet");
+            System.out.println("7. Exit");
 
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -124,13 +159,16 @@ public  int part(int arr[], int st, int ed){
                      baseSort.getinfoquicksort();;
                     break;
                 case 6:
+                    codeshow();
+                    break;    
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
 
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 

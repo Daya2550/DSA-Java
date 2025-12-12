@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 import javadsa.Indexing.Sorting;
 import javadsa.Indexing.serching;
-import javadsa.Searching.LinearSearch;
-import javadsa.Searching.BinarySearch;
-import javadsa.Searching.BinarySearch.*;
+
 public class main {
 
     public static void main(String[] args) {

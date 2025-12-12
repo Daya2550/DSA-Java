@@ -2,10 +2,9 @@ package javadsa.Indexing;
 
 import java.util.Scanner;
 
-import javadsa.Searching.BinarySearch;
-import javadsa.Searching.LinearSearch;
 import javadsa.Sorting.BubbleSort;
 import javadsa.Sorting.MergeSort;
+import javadsa.Sorting.QuickSort;
 
 public class Sorting {
      public void Sort() {
@@ -18,7 +17,8 @@ public class Sorting {
         System.out.println("Choose an option:");
         System.out.println("1. Bubble Sort");
          System.out.println("2. Merge Sort");
-        System.out.print("3. Exit :");
+         System.out.println("3. Quick Sort");
+        System.out.print("4. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
@@ -36,9 +36,16 @@ public class Sorting {
                      obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
-                break;    
+                break;
+             case 3:
+                  try {
+                    QuickSort obj = new QuickSort();
+                     obj.run();
+                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
-            case 3:
+                break;        
+
+            case 4:
                   System.out.println("Exiting the program.");
                 break;
          
@@ -46,6 +53,6 @@ public class Sorting {
                 System.out.println("Invalid choice, please try again.");
       }
      }
-        while(choice!=3);    
+        while(choice!=4);    
     }
 }

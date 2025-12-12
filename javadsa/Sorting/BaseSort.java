@@ -106,4 +106,58 @@ public class BaseSort {
                 
     }
 
+
+
+    public void getinfoquicksort() {
+        String defination = "Definition of Quick Sort Algorithm: \n" +
+                            "Quick Sort is a highly efficient sorting algorithm that follows the divide-and-conquer paradigm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.";
+        String timeComplexity = "Time Complexity: \n" +
+                                "Best Case: O(n log n) - occurs when the pivot divides the array into two equal halves.\n" +
+                                "Average Case: O(n log n) - occurs for random order of elements.\n" +
+                                "Worst Case: O(n^2) - occurs when the smallest or largest element is always chosen as the pivot, leading to unbalanced partitions.";
+        String spaceComplexity = "Space Complexity: O(log n) - Quick Sort is an in-place sorting algorithm, but it requires additional space for the recursive stack calls.";
+        String feacher = "\n" +
+                         "1. Efficiency: Quick Sort is generally faster in practice compared to other O(n log n) algorithms like Merge Sort and Heap Sort due to its cache-efficient nature.\n" +
+                         "2. In-Place Sorting: It sorts the array without requiring significant additional storage space, making it memory efficient.\n" +
+                         "3. Divide-and-Conquer: The algorithm's divide-and-conquer approach allows it to break down complex sorting tasks into smaller, manageable sub-tasks.\n" +
+                         "4. Tail Recursion Optimization: Quick Sort can be optimized using tail recursion to reduce the depth of recursive calls, improving performance.\n" +
+                         "5. Not Stable: Quick Sort is not a stable sort, meaning that it does not maintain the relative order of equal elements.";
+
+       Scanner sc = new Scanner(System.in);
+       int choice;
+       do{
+        System.out.println("----------------------------------------------------------");
+        System.out.println("1. Defination of Quick Sort Algorithm");
+        System.out.println("2. Time Complexity of Quick Sort Algorithm");
+        System.out.println("3. Space Complexity of Quick Sort Algorithm");
+        System.out.println("4. Feachers of Quick Sort Algorithm");
+        System.out.print("5. Exit :");
+        choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Defination of Quick Sort Algorithm: \n" + defination);
+                    break;
+                case 2:
+                    System.out.println("Time Complexity of Quick Sort Algorithm: \n" + timeComplexity
+    );
+                    break;          
+                case 3:
+                    System.out.println("Space Complexity of Quick Sort Algorithm: \n" + spaceComplexity);
+                    break;      
+                case 4:
+                    System.out.println("Feachers of Quick Sort Algorithm: \n" + feacher);
+                    break;
+                case 5:
+                    System.out.println("Exiting Quick Sort Information.");
+                    break;
+                default :
+                    System.out.println("Invalid choice, please try again.");
+                    break;
+                }            
+        
+            }
+            while (choice!=5); 
+                
+    }
+
 }

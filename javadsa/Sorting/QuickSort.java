@@ -4,40 +4,50 @@ import java.util.Scanner;
 
 import javadsa.Searching.Base;
 
-public class BubbleSort {
-
-    int arr[] = new int[100];
-    int size;
-
+public class QuickSort {
+ int arr[]=new int[100];
+ int size ;
 
 
 
 
-    
-    // Bubble sort (same logic as your code)
-    public void ToSort() {
-        // Bubble Sort Algorithm
-        for (int i = 0; i < size - 1; i++) {
-            // Last i elements are already sorted
-            for (int j = 0; j < size - i - 1; j++) { 
-                // Swap if the element found is greater than the next element
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
+public  void Sort (int arr[], int st , int ed){
+
+    if(st<ed){
+        int p =part(arr ,st,ed);
+        Sort(arr, st, p-1);
+        Sort(arr,p+1, ed);
+    }
+}
+
+
+public  int part(int arr[], int st, int ed){
+    int i=st-1;
+    int p=arr[ed];
+
+    for(int j=st ;j<ed;j++){
+        if(arr[j]<p){
+            i++;
+            int t=arr[i];
+            arr[i]=arr[j];
+            arr[j]=t;
         }
     }
+    i++;
+
+    int t=arr[i];
+    arr[i]=p;
+    arr[ed]=t;
+
+    return i;
+}
 
 
 
 
 
-
-
-    // Display sorted array
-    public void display() {
+  // Display sorted array
+    public  void display() {
         for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + "  ");
         }
@@ -46,8 +56,8 @@ public class BubbleSort {
 
 
 
-    // Take initial input
-    public void takeInput() {
+      // Take initial input
+    public  void takeInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of array: ");
         size = sc.nextInt();
@@ -60,10 +70,8 @@ public class BubbleSort {
         System.out.println("Successfully taken input.");
     }
 
-
-    
     // Add more elements to the same array
-    public void ToSamearraay() {
+    public  void ToSamearraay() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of new inputs: ");
         int newSize = sc.nextInt();
@@ -78,10 +86,10 @@ public class BubbleSort {
     }
 
 
-// Main run method to execute Bubble Sort operations
+// Main run method to execute Merge Sort operations
      public void run() {
        Base base = new Base();
-       base.heding("Bubble Sort  Algorithm");
+       base.heding("Quick Sort  Algorithm");
 
         // Menu for user interaction
         int choice;
@@ -92,7 +100,7 @@ public class BubbleSort {
             System.out.println("2. Sort Array");
             System.out.println("3. Display Array");
             System.out.println("4. Add More Elements to Array");
-            System.out.println("5. Information about Bubble Sort  Algorithm");
+            System.out.println("5. Information about Merge Sort  Algorithm");
             System.out.println("6. Exit");
 
             System.out.print("Enter your choice: ");
@@ -103,7 +111,7 @@ public class BubbleSort {
                     takeInput();
                     break;
                 case 2:
-                    ToSort();
+                    Sort(arr,0,size-1);
                     break;
                 case 3:
                     display();
@@ -113,7 +121,7 @@ public class BubbleSort {
                     break;
                 case 5:
                    BaseSort baseSort = new BaseSort();
-                     baseSort.ToGetBubbleSortInfo();
+                     baseSort.getinfoquicksort();;
                     break;
                 case 6:
                     System.out.println("Exiting...");
@@ -124,6 +132,7 @@ public class BubbleSort {
             }
         } while (choice != 6);
     }
+
 
 
 }

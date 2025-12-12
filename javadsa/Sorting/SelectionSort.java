@@ -4,56 +4,31 @@ import java.util.Scanner;
 
 import javadsa.Searching.Base;
 
-public class QuickSort {
+public class SelectionSort {
  int arr[]=new int[100];
  int size ;
 
+//
+    public static void Sort(int arr[] , int size){
 
-
-
-public  void Sort (int arr[], int st , int ed){
-// base case
-    if(st<ed){
-        // partitioning array and getting pivot index
-        int p =part(arr ,st,ed);
-        // recursive calls to sort left and right halves
-        Sort(arr, st, p-1);
-        Sort(arr,p+1, ed);
-    }
-}
-
-
-public  int part(int arr[], int st, int ed){
-    // pivot index initialization 
-     int p=arr[ed];
-     // Refference index for smaller element
-    int i=st-1;
-   
-// traversing through all elements
-    for(int j=st ;j<ed;j++){
-        // if current element is smaller than pivot
-        if(arr[j]<p){
-            // incrementing index of smaller element
-            i++;
-            // swapping elements
+        // Selection Sort Algorithm
+        for(int i=0;i<size-1;i++){
+            // finding index of minimum element idx referes to index of minimum element
+            int idx =i;
+            // traversing through unsorted array
+            for(int j=i+1 ;j<size;j++){
+                // comparing to find minimum element
+                if(arr[j]<arr[idx]){
+                    // updating idx if current element is smaller
+                    idx =j;
+                }
+            }
+            // swapping minimum element with first element of unsorted array
             int t=arr[i];
-            arr[i]=arr[j];
-            arr[j]=t;
+            arr[i]=arr[idx];
+            arr[idx]=t;
         }
     }
-    // placing pivot element at correct position
-    i++;
-// swapping pivot element with element at index i
-    int t=arr[i];
-    arr[i]=p;
-    arr[ed]=t;
-
-    // returning pivot index
-    return i;
-}
-
-
-
 
 
   // Display sorted array
@@ -97,34 +72,20 @@ public  int part(int arr[], int st, int ed){
 
     public void codeshow(){
         String quickSortCode = """
-public void Sort(int arr[], int st, int ed){
-    if(st < ed){
-        int p = part(arr, st, ed);
-        Sort(arr, st, p - 1);
-        Sort(arr, p + 1, ed);
-    }
-}
+          public static void Sort(int arr[] , int size){
 
-public int part(int arr[], int st, int ed){
-    int i = st - 1;
-    int p = arr[ed];
-
-    for(int j = st; j < ed; j++){
-        if(arr[j] < p){
-            i++;
-            int t = arr[i];
-            arr[i] = arr[j];
-            arr[j] = t;
+        for(int i=0;i<size-1;i++){
+            int idx =i;
+            for(int j=i+1 ;j<size;j++){
+                if(arr[j]<arr[idx]){
+                    idx =j;
+                }
+            }
+            int t=arr[i];
+            arr[i]=arr[idx];
+            arr[idx]=t;
         }
     }
-    i++;
-
-    int t = arr[i];
-    arr[i] = p;
-    arr[ed] = t;
-
-    return i;
-}
 """;
         System.out.println(quickSortCode);
     }
@@ -156,7 +117,7 @@ public int part(int arr[], int st, int ed){
                     takeInput();
                     break;
                 case 2:
-                    Sort(arr,0,size-1);
+                    Sort(arr,size-1);
                     break;
                 case 3:
                     display();

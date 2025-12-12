@@ -5,6 +5,7 @@ import java.util.Scanner;
 import javadsa.Sorting.BubbleSort;
 import javadsa.Sorting.MergeSort;
 import javadsa.Sorting.QuickSort;
+import javadsa.Sorting.SelectionSort;
 
 public class Sorting {
      public void Sort() {
@@ -18,7 +19,8 @@ public class Sorting {
         System.out.println("1. Bubble Sort");
          System.out.println("2. Merge Sort");
          System.out.println("3. Quick Sort");
-        System.out.print("4. Exit :");
+         System.out.println("4. Slection Sort ");
+        System.out.print("5. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
@@ -43,9 +45,14 @@ public class Sorting {
                      obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
-                break;        
+                break;  
+              case 4:
+                    try {
+                      SelectionSort obj = new SelectionSort();
+                       obj.run();
+                    } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }      
 
-            case 4:
+            case 5:
                   System.out.println("Exiting the program.");
                 break;
          
@@ -53,6 +60,6 @@ public class Sorting {
                 System.out.println("Invalid choice, please try again.");
       }
      }
-        while(choice!=4);    
+        while(choice!=5);    
     }
 }

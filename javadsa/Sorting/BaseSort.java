@@ -160,4 +160,56 @@ public class BaseSort {
                 
     }
 
+    public void getinfoSelectionsort() {
+        String defination = "Definition of Selection Sort Algorithm: \n" +
+                            "Selection Sort is a simple sorting algorithm that divides the input array into two parts: a sorted and an unsorted region. It repeatedly selects the smallest (or largest) element from the unsorted region and swaps it with the first unsorted element, effectively growing the sorted region one element at a time.";
+        String timeComplexity = "Time Complexity: \n" +
+                                "Best Case: O(n^2) - occurs when the array is already sorted.\n" +
+                                "Average Case: O(n^2) - occurs for random order of elements.\n" +
+                                "Worst Case: O(n^2) - occurs when the array is sorted in reverse order.";
+        String spaceComplexity = "Space Complexity: O(1) - Selection Sort is an in-place sorting algorithm, meaning it requires a constant amount of additional memory space regardless of the input size.";
+        String feacher = "\n" +
+                         "1. Simplicity: Selection Sort is easy to understand and implement, making it suitable for small datasets or educational purposes.\n" +
+                         "2. In-Place Sorting: It sorts the array without requiring additional storage space, making it memory efficient.\n" +
+                         "3. Not Stable: Selection Sort does not maintain the relative order of equal elements, which can be a drawback in certain applications.\n" +
+                         "4. Inefficient for Large Datasets: Due to its O(n^2) time complexity in all cases, Selection Sort is not suitable for large datasets compared to more advanced algorithms like Quick Sort or Merge Sort.";
+
+       Scanner sc = new Scanner(System.in);
+       int choice;
+       do{
+        System.out.println("----------------------------------------------------------");
+        System.out.println("1. Defination of Selection Sort Algorithm");
+        System.out.println("2. Time Complexity of Selection Sort Algorithm");
+        System.out.println("3. Space Complexity of Selection Sort Algorithm");
+        System.out.println("4. Feachers of Selection Sort Algorithm");
+        System.out.print("5. Exit :");
+        choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Defination of Selection Sort Algorithm: \n" + defination);
+                    break;
+                case 2:
+                    System.out.println("Time Complexity of Selection Sort Algorithm: \n" + timeComplexity );
+                    break;
+                case 3:
+                    System.out.println("Space Complexity of Selection Sort Algorithm: \n" + spaceComplexity);
+                    break;  
+                case 4:
+                    System.out.println("Feachers of Selection Sort Algorithm: \n" + feacher);
+                    break;
+                case 5:
+                    System.out.println("Exiting Selection Sort Information.");
+                    break;
+                default :
+                    System.out.println("Invalid choice, please try again.");
+                    break;
+            }
+        }
+            while (choice!=5);
+        
+
+}
+
+
+
 }

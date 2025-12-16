@@ -1,4 +1,4 @@
-package javadsa.Sorting;
+package javadsa.Sorting.HelperClasses;
 
 import java.util.Scanner;
 

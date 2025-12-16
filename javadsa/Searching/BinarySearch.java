@@ -1,18 +1,22 @@
 package javadsa.Searching;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
-import javadsa.Searching.Base;
 
-public class BinarySearch {
-    int[] arr = new int[100];
-    int target;
-    int size;
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Searching.HelperClasses.parent;
+import javadsa.Sorting.MergeSort;
 
-
-
+public class BinarySearch extends parent {
+  
 
 
 
+
+
+
+
+    
 // Binary Search Algorithm
 
     public int ToSearch(int beg, int end, int[] arr, int target) {
@@ -51,73 +55,13 @@ public class BinarySearch {
     
   
 
-    public void takeInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
+    
 
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Successfully taken input.");
-    }
-
-    public void toTakeInputSearch() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the target to search: ");
-        target = sc.nextInt();
-        ToSearch(0, size - 1, arr, target);
-    }
-
-    public void ToSamearraay() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of new inputes: ");
-        int newsize = sc.nextInt();
-
-        for (int i = size; i < (size + newsize); i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-        size = (size + newsize);
-        System.out.println("Successfully taken input.");
-    }
+ 
 
 
-    public void codeshow(){
-        String binarySearchCode = """
-        
-    public int ToSearch(int beg, int end, int[] arr, int target) {
-        // base case for empty array
-        if(arr==null || size==0){
-            System.out.println("Array is empty");
-            return -1;
-        }
-        // base case for element not found
-        if (beg > end) {
-            System.out.println("Element not found");
-            return -1  ;
-        }
-        // finding mid point
-        int mid = (beg + end) / 2;
-        // checking mid element with target
-        if (arr[mid] == target) {
-            System.out.println("Element found at index: " + mid + " Value: " + arr[mid]);
-            return mid;
-        }
-         // recursive calls to search in left or right half
-         else if (arr[mid] < target) {
-            ToSearch(mid + 1, end, arr, target);
 
-        } else {
-            ToSearch(beg, mid - 1, arr, target);
-        }
-        return -1;
-    }
-"""
-        ;
-        System.out.println(binarySearchCode);
-    }
+
     public void run() {
        Base base = new Base();
        base.heding("Binary Search Algorithm");
@@ -143,7 +87,8 @@ public class BinarySearch {
                     takeInput();
                     break;
                 case 2:
-                    toTakeInputSearch();
+                    int r=toTakeInputSearch();
+                    ToSearch(0, size-1, arr, r);
                     break;
                 case 3:
                     base.display(arr, size);
@@ -156,7 +101,7 @@ public class BinarySearch {
                     
                     break;
                 case 6:
-                    codeshow();
+                    BinarySearchCode();
                     break;
                 case 7:
                     System.out.println("Exiting...");

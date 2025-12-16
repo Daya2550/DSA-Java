@@ -2,11 +2,12 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
-import javadsa.Searching.Base;
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Sorting.HelperClasses.BaseSort;
+import javadsa.Sorting.HelperClasses.parent;
 
-public class SelectionSort {
- int arr[]=new int[100];
- int size ;
+public class SelectionSort extends parent {
+
 
 //
     public static void Sort(int arr[] , int size){
@@ -31,64 +32,10 @@ public class SelectionSort {
     }
 
 
-  // Display sorted array
-    public  void display() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] + "  ");
-        }
-        System.out.println();
-    }
+ 
 
 
-
-      // Take initial input
-    public  void takeInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
-
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        System.out.println("Successfully taken input.");
-    }
-
-    // Add more elements to the same array
-    public  void ToSamearraay() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of new inputs: ");
-        int newSize = sc.nextInt();
-
-        for (int i = size; i < size + newSize; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        size = size + newSize;
-        System.out.println("Successfully taken input.");
-    }
-
-    public void codeshow(){
-        String quickSortCode = """
-          public static void Sort(int arr[] , int size){
-
-        for(int i=0;i<size-1;i++){
-            int idx =i;
-            for(int j=i+1 ;j<size;j++){
-                if(arr[j]<arr[idx]){
-                    idx =j;
-                }
-            }
-            int t=arr[i];
-            arr[i]=arr[idx];
-            arr[idx]=t;
-        }
-    }
-""";
-        System.out.println(quickSortCode);
-    }
+ 
 
 
 // Main run method to execute Merge Sort operations
@@ -130,7 +77,7 @@ public class SelectionSort {
                      baseSort.getinfoquicksort();;
                     break;
                 case 6:
-                    codeshow();
+                    SelectionSortCode();
                     break;    
                 case 7:
                     System.out.println("Exiting...");

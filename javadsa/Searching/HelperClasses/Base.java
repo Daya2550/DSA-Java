@@ -1,4 +1,4 @@
-package javadsa.Searching;
+package javadsa.Searching.HelperClasses;
 
 import java.util.Scanner;
 
@@ -123,3 +123,4 @@ public void toGetBinarySearchInfo() {
 
 }
 
+ 

@@ -2,13 +2,12 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
-import javadsa.Searching.Base;
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Sorting.HelperClasses.BaseSort;
+import javadsa.Sorting.HelperClasses.parent;
 
-public class MergeSort {
+public class MergeSort extends parent  {
 
-  // Merge sort implementation
-    int arr[] = new int[100];
-    int size;
  
     public  void divide(int a[], int st ,int ed){
       // base case for single element array or empty array
@@ -74,100 +73,9 @@ public class MergeSort {
 
 
 
-        // Display sorted array
-    public void display() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] + "  ");
-        }
-        System.out.println();
-    }
+    
 
 
-
-      // Take initial input
-    public void takeInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
-
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        System.out.println("Successfully taken input.");
-    }
-
-    // Add more elements to the same array
-    public void ToSamearraay() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of new inputs: ");
-        int newSize = sc.nextInt();
-
-        for (int i = size; i < size + newSize; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        size = size + newSize;
-        System.out.println("Successfully taken input.");
-    }
-
-
-public void codeshow() {
-        String mergeSortCode = """
-public void divide(int a[], int st, int ed){
-    // base case for single element array or empty array
-    if(st >= ed){
-        return;
-    }
-
-    // finding mid point
-    int mid = (st + ed) / 2;
-
-    // recursive calls to divide array into halves
-    divide(a, st, mid);
-    divide(a, mid + 1, ed);
-
-    // merging 2 sorted halves
-    conquer(a, st, mid, ed);
-}
-
-public void conquer(int arr[], int st, int mid, int ed){
-    // temporary array
-    int meg[] = new int[ed - st + 1];
-
-    int id1 = st, // first array starting index
-        id2 = mid + 1, // second array starting index
-        x = 0; // mega array index
-
-    // merging 2 sorted array
-    while(id1 <= mid && id2 <= ed){
-        if(arr[id1] <= arr[id2]){
-            meg[x++] = arr[id1++];
-        } else {
-            meg[x++] = arr[id2++];
-        }
-    }
-
-    // if any element left in first array
-    while(id1 <= mid){
-        meg[x++] = arr[id1++];
-    }
-
-    // if any element left in second array
-    while(id2 <= ed){
-        meg[x++] = arr[id2++];
-    }
-
-    // copy temp array to original array
-    for(int i = 0, j = st; i < meg.length; i++, j++){
-        arr[j] = meg[i];
-    }
-}
-""";
-        System.out.println(mergeSortCode);
-    }
 
 
 
@@ -212,7 +120,7 @@ public void conquer(int arr[], int st, int mid, int ed){
                      baseSort.getinfomergesort();
                     break;
                 case 6:
-                    codeshow(); 
+                    MergeSortCode();
                     break;
                 case 7:
                     System.out.println("Exiting...");

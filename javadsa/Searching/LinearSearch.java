@@ -2,13 +2,13 @@ package javadsa.Searching;
 
 import java.util.Scanner;
 
-public class LinearSearch {
-    // Linear Search implementation
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Searching.HelperClasses.parent;
 
-    Scanner sc = new Scanner(System.in);
-    int[] arr = new int[100];
-    int target;
-    int size;
+public class LinearSearch extends parent {
+
+
+   
 
 
 
@@ -44,61 +44,8 @@ public class LinearSearch {
 
 
 
-// Take initial input
 
-    public void takeInput() {
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Successfully taken input.");
-    }
-
-    // Input target to search
-    public void toTakeInputSearch() {
-        System.out.print("Enter the target to search: ");
-        target = sc.nextInt();
-        ToSearch(arr, size, target);
-    }
-    
-// Add more elements to the same array
-    public void ToSamearraay() {
-        System.out.print("Enter the size of new inputes: ");
-        int newsize = sc.nextInt();
-
-        for (int i = size; i < (size + newsize); i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-        size += newsize;
-        System.out.println("Successfully added new elements.");
-    }
-
-    public void codeshow(){
-        String linearSearchCode = """
-           public int ToSearch(int[] arr, int size, int target) {
-        // base case for empty array
-        if(arr==null || size==0){
-            System.out.println("Array is empty");
-            return -1;
-        }
-        // linear search through the array
-        for (int i = 0; i < size; i++) {
-            if (arr[i] == target) {
-                System.out.println("Element found at index: " + i + " Value: " + arr[i]);
-                return i;
-            }
-        }
-        System.out.println("Element not found");
-        return -1;
-    }
-
-         """
-                ;
-                System.out.println(linearSearchCode);
-    }
+  
 
     // Main run method to execute Linear Search operations
     public void run() {
@@ -123,7 +70,8 @@ public class LinearSearch {
                     takeInput();
                     break;
                 case 2:
-                    toTakeInputSearch();
+                   int r= toTakeInputSearch();
+                ToSearch(arr, size, r);
                     break;
                 case 3:
                     base.display(arr, size);
@@ -136,7 +84,7 @@ public class LinearSearch {
                     break;
 
                 case 6:
-                    codeshow();
+                    LinearSearchCode();
                     break;
 
                 case 7:

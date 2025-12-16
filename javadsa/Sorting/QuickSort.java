@@ -2,11 +2,12 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
-import javadsa.Searching.Base;
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Sorting.HelperClasses.BaseSort;
+import javadsa.Sorting.HelperClasses.parent;
 
-public class QuickSort {
- int arr[]=new int[100];
- int size ;
+public class QuickSort  extends parent{
+
 
 
 
@@ -56,79 +57,6 @@ public  int part(int arr[], int st, int ed){
 
 
 
-  // Display sorted array
-    public  void display() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] + "  ");
-        }
-        System.out.println();
-    }
-
-
-
-      // Take initial input
-    public  void takeInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
-
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        System.out.println("Successfully taken input.");
-    }
-
-    // Add more elements to the same array
-    public  void ToSamearraay() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of new inputs: ");
-        int newSize = sc.nextInt();
-
-        for (int i = size; i < size + newSize; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        size = size + newSize;
-        System.out.println("Successfully taken input.");
-    }
-
-    public void codeshow(){
-        String quickSortCode = """
-public void Sort(int arr[], int st, int ed){
-    if(st < ed){
-        int p = part(arr, st, ed);
-        Sort(arr, st, p - 1);
-        Sort(arr, p + 1, ed);
-    }
-}
-
-public int part(int arr[], int st, int ed){
-    int i = st - 1;
-    int p = arr[ed];
-
-    for(int j = st; j < ed; j++){
-        if(arr[j] < p){
-            i++;
-            int t = arr[i];
-            arr[i] = arr[j];
-            arr[j] = t;
-        }
-    }
-    i++;
-
-    int t = arr[i];
-    arr[i] = p;
-    arr[ed] = t;
-
-    return i;
-}
-""";
-        System.out.println(quickSortCode);
-    }
-
 
 // Main run method to execute Merge Sort operations
      public void run() {
@@ -169,7 +97,7 @@ public int part(int arr[], int st, int ed){
                      baseSort.getinfoquicksort();;
                     break;
                 case 6:
-                    codeshow();
+                    QuickSortCode();
                     break;    
                 case 7:
                     System.out.println("Exiting...");

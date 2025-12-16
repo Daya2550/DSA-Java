@@ -27,7 +27,7 @@ public class Sorting {
             case 1:
                   try {
                     BubbleSort obj = new BubbleSort();
-                     obj.run();
+                    obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;

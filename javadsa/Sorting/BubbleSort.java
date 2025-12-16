@@ -2,19 +2,22 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
-import javadsa.Searching.Base;
+import javadsa.Searching.HelperClasses.Base;
+import javadsa.Sorting.HelperClasses.BaseSort;
+import javadsa.Sorting.HelperClasses.parent;
 
-public class BubbleSort {
+public class BubbleSort extends parent {
 
-    int arr[] = new int[100];
-    int size;
+   
+
+    
 
 
 
 
 
     
-    // Bubble sort (same logic as your code)
+    // Bubble sort Algorithm
     public void ToSort() {
         // Bubble Sort Algorithm
         for (int i = 0; i < size - 1; i++) {
@@ -36,68 +39,14 @@ public class BubbleSort {
 
 
 
-    // Display sorted array
-    public void display() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] + "  ");
-        }
-        System.out.println();
-    }
 
 
 
-    // Take initial input
-    public void takeInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        size = sc.nextInt();
-
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        System.out.println("Successfully taken input.");
-    }
 
 
 
-    // Add more elements to the same array
-    public void ToSamearraay() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of new inputs: ");
-        int newSize = sc.nextInt();
-
-        for (int i = size; i < size + newSize; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        size = size + newSize;
-        System.out.println("Successfully taken input.");
-    }
 
 
-        // Show code snippet
-        public void codeshow() {
-            String bubbleSortCode = """
-           public void ToSort() {
-              // Bubble Sort Algorithm
-              for (int i = 0; i < size - 1; i++) {
-              // Last i elements are already sorted
-                 for (int j = 0; j < size - i - 1; j++) { 
-                 // Swap if the element found is greater than the next element
-                 if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-    }""";
-            
-            System.out.println(bubbleSortCode);
-        }
 
 
 // Main run method to execute Bubble Sort operations
@@ -139,7 +88,7 @@ public class BubbleSort {
                      baseSort.ToGetBubbleSortInfo();
                     break;
                 case 6:
-                    codeshow();
+                    BubbleSortCode();
                     break;
                 case 7:
                     System.out.println("Exiting...");

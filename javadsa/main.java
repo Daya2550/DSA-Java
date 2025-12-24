@@ -3,6 +3,7 @@ package javadsa;
 import java.util.Scanner;
 
 import javadsa.Indexing.Sorting;
+import javadsa.Indexing.StackAndQueue;
 import javadsa.Indexing.serching;
 
 public class main {
@@ -16,8 +17,9 @@ public class main {
         System.out.println("Choose an option:");
         System.out.println("1. Serching Algorithms:");
          System.out.println("2. Sorting Algorithms:");
-        System.out.println("3. Information about Data Structures:");
-        System.out.print("4. Exit :");
+         System.out.println("3. Stack and Queue Implementation");
+        System.out.println("4. Information about Data Structures:");
+        System.out.print("5. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
@@ -31,14 +33,18 @@ public class main {
                 sort.Sort();
                 break;    
             
-            
             case 3:
-                information info = new information();
-                info.TogetDifination();
+                StackAndQueue sq = new StackAndQueue();
+                sq.choice();
                 break; 
                 
             case 4:
-                System.out.println("Exiting the program.");
+                information info1 = new information();
+                info1.TogetDifination();
+                break;
+
+            case 5:
+                  System.out.println("Exiting the program.");
                 break;    
                     
             default:

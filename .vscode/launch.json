@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "stack",
+            "request": "launch",
+            "mainClass": "javadsa.Sorting.stack",
+            "projectName": "java_b04e2fa1"
+        },
+        {
+            "type": "java",
+            "name": "loop",
+            "request": "launch",
+            "mainClass": "javadsa.Sorting.loop",
+            "projectName": "java_b04e2fa1"
+        },
+        {
+            "type": "java",
             "name": "main",
             "request": "launch",
             "mainClass": "javadsa.main",

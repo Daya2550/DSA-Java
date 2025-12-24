@@ -13,6 +13,7 @@ public class BubbleSort extends parent {
     
 
 
+// int arr[]={1,2,3,4,5,6};
 
 
 
@@ -95,6 +96,7 @@ public class BubbleSort extends parent {
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
+                 
 
             }
         } while (choice != 7);

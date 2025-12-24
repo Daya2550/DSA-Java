@@ -6,30 +6,27 @@ import javadsa.Sorting.BubbleSort;
 import javadsa.Sorting.MergeSort;
 import javadsa.Sorting.QuickSort;
 import javadsa.Sorting.SelectionSort;
+import javadsa.StackAndQueue.stack;
 
-
-
-public class Sorting {
-     public void Sort() {
+public class StackAndQueue {
+     public void choice() {
         // Implementation for indexing search can be added here
          Scanner sc = new Scanner(System.in);
         int choice =1;
-        System.out.println("Welcome to Sorting Algo in Java");
+        System.out.println("Welcome to Satack and Queue Implementation in Java");
         System.out.println("-----------------------------------------------");
       do{
         System.out.println("Choose an option:");
-        System.out.println("1. Bubble Sort");
-         System.out.println("2. Merge Sort");
-         System.out.println("3. Quick Sort");
-         System.out.println("4. Slection Sort ");
-        System.out.print("5. Exit :");
+        System.out.println("1. Stack Implementation");
+         System.out.println("2. Queue Implementation");
+        System.out.print("3. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
             case 1:
                   try {
-                    BubbleSort obj = new BubbleSort();
-                    obj.run();
+                    stack obj = new stack();
+                     obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
@@ -40,21 +37,9 @@ public class Sorting {
                      obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
-                break;
-             case 3:
-                  try {
-                    QuickSort obj = new QuickSort();
-                     obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                break;    
 
-                break;  
-              case 4:
-                    try {
-                      SelectionSort obj = new SelectionSort();
-                       obj.run();
-                    } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }      
-
-            case 5:
+            case 3:
                   System.out.println("Exiting the program.");
                 break;
          
@@ -62,6 +47,6 @@ public class Sorting {
                 System.out.println("Invalid choice, please try again.");
       }
      }
-        while(choice!=5);    
+        while(choice!=3);    
     }
 }

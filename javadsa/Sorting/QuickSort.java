@@ -42,7 +42,7 @@ public  int part(int arr[], int st, int ed){
             arr[j]=t;
         }
     }
-    // placing pivot element at correct position
+// placing pivot element at correct position
     i++;
 // swapping pivot element with element at index i
     int t=arr[i];

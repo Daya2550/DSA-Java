@@ -1,11 +1,6 @@
 package javadsa.Indexing;
 
 import java.util.Scanner;
-
-import javadsa.Sorting.BubbleSort;
-import javadsa.Sorting.MergeSort;
-import javadsa.Sorting.QuickSort;
-import javadsa.Sorting.SelectionSort;
 import javadsa.StackAndQueue.stack;
 
 public class StackAndQueue {
@@ -19,7 +14,8 @@ public class StackAndQueue {
         System.out.println("Choose an option:");
         System.out.println("1. Stack Implementation");
          System.out.println("2. Queue Implementation");
-        System.out.print("3. Exit :");
+         System.out.println("3. CircularQueue Implementation");
+        System.out.print("4. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
@@ -33,20 +29,31 @@ public class StackAndQueue {
 
              case 2:
                   try {
-                    MergeSort obj = new MergeSort();
+                    javadsa.StackAndQueue.Queue obj = new javadsa.StackAndQueue.Queue();
                      obj.run();
+                 
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
-                break;    
-
+                break; 
             case 3:
+                  try {
+                    javadsa.StackAndQueue.CircularQueue qe =new javadsa.StackAndQueue.CircularQueue();
+                      qe.run();
+
+                  } catch (Exception e) {
+                    System.out.println("Some thing went Wrong !");
+                  }
+                break;         
+
+            case 4:
                   System.out.println("Exiting the program.");
                 break;
+             
          
             default:
                 System.out.println("Invalid choice, please try again.");
       }
      }
-        while(choice!=3);    
+        while(choice!=4);    
     }
 }

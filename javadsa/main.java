@@ -18,8 +18,9 @@ public class main {
         System.out.println("1. Serching Algorithms:");
          System.out.println("2. Sorting Algorithms:");
          System.out.println("3. Stack and Queue Implementation");
-        System.out.println("4. Information about Data Structures:");
-        System.out.print("5. Exit :");
+         System.out.println("4. Linked List Implementation");
+        System.out.println("5. Information about Data Structures:");
+        System.out.print("6. Exit :");
         choice = sc.nextInt();  
        
         switch (choice) {
@@ -37,13 +38,18 @@ public class main {
                 StackAndQueue sq = new StackAndQueue();
                 sq.choice();
                 break; 
-                
+            
             case 4:
+                javadsa.Indexing.LinkedList ll = new javadsa.Indexing.LinkedList();
+                ll.LL();
+                break;
+                
+            case 5:
                 information info1 = new information();
                 info1.TogetDifination();
                 break;
 
-            case 5:
+            case 6:
                   System.out.println("Exiting the program.");
                 break;    
                     

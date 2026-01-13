@@ -2,6 +2,7 @@ package javadsa.StackAndQueue;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.StackAndQueue.HelperClasses.BaseStackAndQueue;
@@ -13,8 +14,6 @@ public class Queue extends parent {
     private int front;
     private int rear;
     private int capacity;
-
-
 
     // Add element to queue
     public void add() {
@@ -33,7 +32,7 @@ public class Queue extends parent {
     public void sub() {
         if (isEmpty()) {
             System.out.println("Queue is Empty");
-          
+
         }
 
         int removedValue = elements[front];
@@ -74,7 +73,7 @@ public class Queue extends parent {
         System.out.println();
     }
 
-  public void takeSize() {
+    public void takeSize() {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter the size of Queue");
         size = sc.nextInt();
@@ -83,7 +82,8 @@ public class Queue extends parent {
         front = 0;
         rear = -1;
     }
-public void incressSize() {
+
+    public void incressSize() {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter the size to incress");
         int newsize = sc.nextInt();
@@ -99,12 +99,10 @@ public void incressSize() {
         System.out.println("Queue size incressed to " + capacity);
     }
 
-
     public void run() throws MyExceptionHandling {
-        Base base = new Base();
-        base.heding("Queue  Implementation");
+        MainHelper.SectionHeader("Queue Implementation");
 
-        int choice;
+        int choice = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -117,9 +115,16 @@ public void incressSize() {
             System.out.println("7. Information about Queue  Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
+            System.out.println("10. Stop Application Program");
 
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -129,10 +134,10 @@ public void incressSize() {
                     add();
                     break;
                 case 3:
-                     sub();
+                    sub();
                     break;
                 case 4:
-                   peek();
+                    peek();
                     break;
                 case 5:
                     display();
@@ -141,19 +146,22 @@ public void incressSize() {
                     incressSize();
                     break;
                 case 7:
-                   BaseStackAndQueue bq = new BaseStackAndQueue();
-                   bq.InfoQueue();
+                    BaseStackAndQueue bq = new BaseStackAndQueue();
+                    bq.InfoQueue();
                     break;
                 case 8:
-                parent p = new parent();
-                p.CodeQueue();
-                break;        
+                    parent p = new parent();
+                    p.CodeQueue();
+                    break;
                 case 9:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Queue Menu");
+                    break;
+                case 10:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
-                 
+
             }
         } while (choice < 9);
     }

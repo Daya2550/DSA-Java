@@ -4,102 +4,100 @@ import java.util.Scanner;
 
 import javadsa.LinkedList.HelperClasses.BaseLL;
 import javadsa.LinkedList.HelperClasses.ParentLL;
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 
-
 public class Singlylinkedlists {
-    
-Node head;
-    class Node{
+
+    Node head;
+
+    class Node {
         String data;
         Node next;
-        Node(String data){
-            this.data=data;
-            next =null;
+
+        Node(String data) {
+            this.data = data;
+            next = null;
         }
     }
 
-     public void AddFirst(String s){
-        Node New =new Node(s);
-        if(head==null){
-            head=New;
-            return ;
-        }
-        New.next =head;
-        head=New;
-    }
-
-    public void AddLast(String s){
-         Node New =new Node(s);
-        if(head==null){
-            head=New;
-            return ;
-        }
-        Node cureeNode =head;
-        while(cureeNode.next!=null) {
-            cureeNode=cureeNode.next;
-        }
-        cureeNode.next=New;
-    }
-
-
-    public void DeleteFirst(){
-        if(head==null){
-            System.out.println("List are the Empty !");
-        }
-        Node currNode=head;
-        head=currNode.next;
-    }
-
-    public  void DeleteLast(){
-        if(head==null){
-            System.out.println("List are the Empty !");
-        }
-        if(head.next==null){
-            head=null;
+    public void AddFirst(String s) {
+        Node New = new Node(s);
+        if (head == null) {
+            head = New;
             return;
         }
-        Node currNode=head;
-        Node lastNode=head.next;
-        while(lastNode.next!=null) {
-            currNode=currNode.next;
-            lastNode=lastNode.next;
-        }
-        currNode.next=null;
+        New.next = head;
+        head = New;
     }
 
-    public void Display(){
-        Node cureeNode =head;
-        while(cureeNode !=null) {
-            System.out.print(cureeNode.data+"->");
-            cureeNode=cureeNode.next;
+    public void AddLast(String s) {
+        Node New = new Node(s);
+        if (head == null) {
+            head = New;
+            return;
+        }
+        Node cureeNode = head;
+        while (cureeNode.next != null) {
+            cureeNode = cureeNode.next;
+        }
+        cureeNode.next = New;
+    }
+
+    public void DeleteFirst() {
+        if (head == null) {
+            System.out.println("List are the Empty !");
+        }
+        Node currNode = head;
+        head = currNode.next;
+    }
+
+    public void DeleteLast() {
+        if (head == null) {
+            System.out.println("List are the Empty !");
+        }
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node currNode = head;
+        Node lastNode = head.next;
+        while (lastNode.next != null) {
+            currNode = currNode.next;
+            lastNode = lastNode.next;
+        }
+        currNode.next = null;
+    }
+
+    public void Display() {
+        Node cureeNode = head;
+        while (cureeNode != null) {
+            System.out.print(cureeNode.data + "->");
+            cureeNode = cureeNode.next;
         }
         System.out.println();
     }
 
-    public int size(){
-        if(head==null){
+    public int size() {
+        if (head == null) {
             return 0;
         }
-        Node cureeNode =head;
-        int count =0;
-        while(cureeNode !=null) {
+        Node cureeNode = head;
+        int count = 0;
+        while (cureeNode != null) {
             count++;
-            cureeNode=cureeNode.next;
+            cureeNode = cureeNode.next;
         }
-        System.out.println("\nSize of Linkedlist :"+count);
+        System.out.println("\nSize of Linkedlist :" + count);
         return count;
 
     }
 
-
-
     public void run() throws MyExceptionHandling {
-        Base base = new Base();
-        base.heding("Singly Linked List Implementation");
+        MainHelper.SectionHeader("Singly Linked List Implementation");
 
-        int choice;
+        int choice = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -112,9 +110,16 @@ Node head;
             System.out.println("7. Information about Singly Linked List Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
-         
+            System.out.println("10. Stop Application Program");
+
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -128,35 +133,38 @@ Node head;
                     AddLast(dataLast);
                     break;
                 case 3:
-                     DeleteFirst();
+                    DeleteFirst();
                     break;
                 case 4:
-                   DeleteLast();
+                    DeleteLast();
                     break;
                 case 5:
-                     Display();
+                    Display();
                     break;
                 case 6:
-                     size();
+                    size();
                     break;
                 case 7:
-                   BaseLL baseLL = new BaseLL();
+                    BaseLL baseLL = new BaseLL();
                     baseLL.InfoSinglyLinkedList();
                     break;
                 case 8:
                     ParentLL p = new ParentLL();
                     p.CodeSLL();
 
-                break;        
+                    break;
                 case 9:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Singly Linked List Menu");
+                    break;
+                case 10:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
-                 
+
             }
-        } while (choice < 9);
-        sc.close();
+        } while (choice != 9);
+
     }
 
 }

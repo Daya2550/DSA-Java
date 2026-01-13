@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 import javadsa.LinkedList.HelperClasses.BaseLL;
 import javadsa.LinkedList.HelperClasses.ParentLL;
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 
 public class DoublyLinkedList {
-    
-   Node head;
-   Node tail;
+
+    Node head;
+    Node tail;
 
     class Node {
         String data;
@@ -24,8 +25,6 @@ public class DoublyLinkedList {
         }
     }
 
-
-
     public void AddFirst(String s) {
         Node New = new Node(s);
         if (head == null) {
@@ -38,7 +37,6 @@ public class DoublyLinkedList {
         head = New;
     }
 
-
     public void AddLast(String s) {
         Node New = new Node(s);
         if (head == null) {
@@ -50,7 +48,6 @@ public class DoublyLinkedList {
         New.prev = tail;
         tail = New;
     }
-
 
     public void DeleteFirst() {
         if (head == null) {
@@ -66,7 +63,6 @@ public class DoublyLinkedList {
         head.prev = null;
     }
 
-
     public void DeleteLast() {
         if (head == null) {
             System.out.println("List are the Empty !");
@@ -80,7 +76,6 @@ public class DoublyLinkedList {
         tail = tail.prev;
         tail.next = null;
     }
-
 
     public void Display() {
         if (head == null) {
@@ -96,7 +91,6 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-
     public void DisplayReverse() {
         if (tail == null) {
             System.out.println("List is empty!");
@@ -111,7 +105,6 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-
     public int size() {
         int count = 0;
         Node current = head;
@@ -123,13 +116,10 @@ public class DoublyLinkedList {
         return count;
     }
 
-
     public void run() throws MyExceptionHandling {
-        Base base = new Base();
-        base.heding("Doubly Linked List Implementation");
-
-        int choice;
+        MainHelper.SectionHeader("Doubly Linked List Implementation");
         Scanner sc = new Scanner(System.in);
+        int choice = 0;
 
         do {
             System.out.println("1.AddFirst Element");
@@ -141,9 +131,16 @@ public class DoublyLinkedList {
             System.out.println("7. Information about Doubly Linked List Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
-         
+            System.out.println("10. Stop Application Program");
+
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -160,31 +157,34 @@ public class DoublyLinkedList {
                     DeleteFirst();
                     break;
                 case 4:
-                   DeleteLast();
+                    DeleteLast();
                     break;
                 case 5:
-                     Display();
+                    Display();
                     break;
                 case 6:
-                     size();
+                    size();
                     break;
                 case 7:
-                BaseLL.infoDoublyLinkedList();
+                    BaseLL.infoDoublyLinkedList();
                     break;
                 case 8:
                     ParentLL parentLL = new ParentLL();
                     parentLL.CodeDLL();
 
-                break;        
+                    break;
                 case 9:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Doubly Linked List Menu");
+                    break;
+                case 10:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
-                 
+
             }
-        } while (choice < 9);
-        sc.close();
+        } while (choice != 9);
+
     }
 
 }

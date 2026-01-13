@@ -2,6 +2,7 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.Sorting.HelperClasses.BaseSort;
@@ -9,22 +10,14 @@ import javadsa.Sorting.HelperClasses.parent;
 
 public class BubbleSort extends parent {
 
-   
+    // int arr[]={1,2,3,4,5,6};
 
-    
-
-
-// int arr[]={1,2,3,4,5,6};
-
-
-
-    
     // Bubble sort Algorithm
     public void ToSort() {
         // Bubble Sort Algorithm
         for (int i = 0; i < size - 1; i++) {
             // Last i elements are already sorted
-            for (int j = 0; j < size - i - 1; j++) { 
+            for (int j = 0; j < size - i - 1; j++) {
                 // Swap if the element found is greater than the next element
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
@@ -35,31 +28,14 @@ public class BubbleSort extends parent {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Main run method to execute Bubble Sort operations
-     public void run() throws MyExceptionHandling {
-       Base base = new Base();
-       base.heding("Bubble Sort  Algorithm");
+    // Main run method to execute Bubble Sort operations
+    public void run() throws MyExceptionHandling {
+        MainHelper.SectionHeader("Bubble Sort Algorithm");
 
         // Menu for user interaction
-        int choice;
+        int choice = 0;
         Scanner sc = new Scanner(System.in);
-        
+
         do {
             System.out.println("1. Take Input");
             System.out.println("2. Sort Array");
@@ -68,9 +44,16 @@ public class BubbleSort extends parent {
             System.out.println("5. Information about Bubble Sort  Algorithm");
             System.out.println("6. Show Code Snippet");
             System.out.println("7. Exit");
+            System.out.println("8. Stop Application Program");
 
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -86,22 +69,23 @@ public class BubbleSort extends parent {
                     ToSamearraay();
                     break;
                 case 5:
-                   BaseSort baseSort = new BaseSort();
-                     baseSort.ToGetBubbleSortInfo();
+                    BaseSort baseSort = new BaseSort();
+                    baseSort.ToGetBubbleSortInfo();
                     break;
                 case 6:
                     BubbleSortCode();
                     break;
                 case 7:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Bubble Sort");
+                    break;
+                case 8:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
-                 
 
             }
         } while (choice != 7);
     }
-
 
 }

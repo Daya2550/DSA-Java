@@ -2,6 +2,7 @@ package javadsa.StackAndQueue;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.StackAndQueue.HelperClasses.BaseStackAndQueue;
@@ -69,15 +70,16 @@ public class stack extends parent {
     public void takeSize() {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter the size of stack");
-        size = sc.nextInt();   
+        size = sc.nextInt();
+        arr = new int[size];
+        head = -1;
         System.out.println("stack of size " + size + " created");
     }
 
     public void run() throws MyExceptionHandling {
-        Base base = new Base();
-        base.heding("Stack  Implementation");
+        MainHelper.SectionHeader("Stack Implementation");
 
-        int choice;
+        int choice = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -90,9 +92,16 @@ public class stack extends parent {
             System.out.println("7. Information about stack  Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
+            System.out.println("10. Stop Application Program");
 
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -114,18 +123,21 @@ public class stack extends parent {
                     incressSize();
                     break;
                 case 7:
-                    BaseStackAndQueue b =new BaseStackAndQueue();
+                    BaseStackAndQueue b = new BaseStackAndQueue();
                     b.InfoStack();
                     break;
                 case 8:
                     StackCode();
-                    break;        
+                    break;
                 case 9:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Stack Menu");
+                    break;
+                case 10:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");
-                 
+
             }
         } while (choice < 9);
     }

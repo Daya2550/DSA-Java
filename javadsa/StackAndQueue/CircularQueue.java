@@ -2,6 +2,7 @@ package javadsa.StackAndQueue;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
 import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.StackAndQueue.HelperClasses.BaseStackAndQueue;
@@ -77,7 +78,8 @@ public class CircularQueue {
         System.out.print("Queue Elements: ");
         for (int i = front;; i = (i + 1) % capacity) {
             System.out.print(arr[i] + " ");
-            if (i == rear) break;
+            if (i == rear)
+                break;
         }
         System.out.println();
     }
@@ -138,11 +140,10 @@ public class CircularQueue {
     }
 
     // Main run loop
-    public void run()  throws MyExceptionHandling {
-        Base base = new Base();
-        base.heding("CircularQueue Implementation");
+    public void run() throws MyExceptionHandling {
+        MainHelper.SectionHeader("Circular Queue Implementation");
 
-        int choice;
+        int choice = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -156,8 +157,15 @@ public class CircularQueue {
             System.out.println("7. Information about CircularQueue Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
+            System.out.println("10. Stop Application Program");
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong!");
+                sc.nextLine();
+                MainHelper.ErrorMessage();
+            }
 
             switch (choice) {
                 case 1:
@@ -187,7 +195,10 @@ public class CircularQueue {
                     p.CodeCircularQueue();
                     break;
                 case 9:
-                    System.out.println("Exiting...");
+                    MainHelper.SectionExit("Circular Queue Menu");
+                    break;
+                case 10:
+                    MainHelper.StopApp();
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");

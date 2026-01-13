@@ -1,6 +1,8 @@
 package javadsa.StackAndQueue;
 
 import java.util.Scanner;
+
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.StackAndQueue.HelperClasses.BaseStackAndQueue;
 import javadsa.StackAndQueue.HelperClasses.parent;
@@ -71,7 +73,7 @@ public class stack extends parent {
         System.out.println("stack of size " + size + " created");
     }
 
-    public void run() {
+    public void run() throws MyExceptionHandling {
         Base base = new Base();
         base.heding("Stack  Implementation");
 

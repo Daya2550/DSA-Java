@@ -2,6 +2,8 @@ package javadsa.Indexing;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Sorting.BubbleSort;
 import javadsa.Sorting.MergeSort;
 import javadsa.Sorting.QuickSort;
@@ -30,7 +32,12 @@ public class Sorting {
                   try {
                     BubbleSort obj = new BubbleSort();
                     obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  }
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
 
@@ -38,21 +45,36 @@ public class Sorting {
                   try {
                     MergeSort obj = new MergeSort();
                      obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
              case 3:
                   try {
                     QuickSort obj = new QuickSort();
                      obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;  
               case 4:
                     try {
                       SelectionSort obj = new SelectionSort();
                        obj.run();
-                    } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }      
+                    }
+                      catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                    catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }      
 
             case 5:
                   System.out.println("Exiting the program.");

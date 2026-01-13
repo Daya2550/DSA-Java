@@ -2,6 +2,7 @@ package javadsa.Searching;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.Searching.HelperClasses.parent;
 
@@ -48,7 +49,7 @@ public class LinearSearch extends parent {
   
 
     // Main run method to execute Linear Search operations
-    public void run() {
+    public void run()  throws MyExceptionHandling {
         Base base = new Base();
         base.heding("Linear Search ");
 

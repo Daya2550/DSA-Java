@@ -2,6 +2,7 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.Sorting.HelperClasses.BaseSort;
 import javadsa.Sorting.HelperClasses.parent;
@@ -82,7 +83,7 @@ public class MergeSort extends parent  {
 
 
 // Main run method to execute Merge Sort operations
-     public void run() {
+     public void run() throws MyExceptionHandling {
        Base base = new Base();
        base.heding("Merge Sort  Algorithm");
 

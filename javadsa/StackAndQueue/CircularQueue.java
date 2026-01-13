@@ -2,6 +2,7 @@ package javadsa.StackAndQueue;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.StackAndQueue.HelperClasses.BaseStackAndQueue;
 import javadsa.StackAndQueue.HelperClasses.parent;
@@ -137,7 +138,7 @@ public class CircularQueue {
     }
 
     // Main run loop
-    public void run() {
+    public void run()  throws MyExceptionHandling {
         Base base = new Base();
         base.heding("CircularQueue Implementation");
 

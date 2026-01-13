@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 import javadsa.LinkedList.DoublyLinkedList;
 import javadsa.LinkedList.Singlylinkedlists;
-import javadsa.Sorting.BubbleSort;
-import javadsa.Sorting.MergeSort;
-import javadsa.Sorting.QuickSort;
-import javadsa.Sorting.SelectionSort;
+import javadsa.MainHelper.MainHelper;
+import javadsa.MainHelper.MyExceptionHandling;
 
 public class LinkedList {
      public void LL() {
@@ -29,7 +27,12 @@ public class LinkedList {
                   try {
                     Singlylinkedlists obj = new Singlylinkedlists();
                     obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                   catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
 
@@ -37,13 +40,24 @@ public class LinkedList {
                   try {
                    DoublyLinkedList obj = new DoublyLinkedList();
                     obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                  catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
              case 3:
                   try {
                       choice=4;
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                  //  catch(MyExceptionHandling me){
+                  //   System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                  //   new MainHelper().ToStart();
+                  // }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
                 break;  
               
             case 4:

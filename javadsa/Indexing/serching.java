@@ -3,6 +3,8 @@ package javadsa.Indexing;
 import java.util.Scanner;
 
 import javadsa.Searching.LinearSearch;
+import javadsa.MainHelper.MainHelper;
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.BinarySearch;
 
 public class serching {
@@ -24,7 +26,12 @@ public class serching {
                   try {
                     BinarySearch obj = new BinarySearch();
                      obj.run(); 
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  }
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
 
@@ -32,7 +39,12 @@ public class serching {
                  try {
                     LinearSearch obj1 = new LinearSearch();
                     obj1.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
                 break;
                 
             case 3:

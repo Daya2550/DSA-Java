@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javadsa.LinkedList.HelperClasses.BaseLL;
 import javadsa.LinkedList.HelperClasses.ParentLL;
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 
 
@@ -94,7 +95,7 @@ Node head;
 
 
 
-    public void run() {
+    public void run() throws MyExceptionHandling {
         Base base = new Base();
         base.heding("Singly Linked List Implementation");
 

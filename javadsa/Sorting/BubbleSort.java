@@ -2,6 +2,7 @@ package javadsa.Sorting;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.Sorting.HelperClasses.BaseSort;
 import javadsa.Sorting.HelperClasses.parent;
@@ -51,7 +52,7 @@ public class BubbleSort extends parent {
 
 
 // Main run method to execute Bubble Sort operations
-     public void run() {
+     public void run() throws MyExceptionHandling {
        Base base = new Base();
        base.heding("Bubble Sort  Algorithm");
 

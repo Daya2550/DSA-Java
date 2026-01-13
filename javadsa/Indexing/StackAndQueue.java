@@ -2,6 +2,8 @@ package javadsa.Indexing;
 
 import java.util.Scanner;
 
+import javadsa.MainHelper.MainHelper;
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.StackAndQueue.CircularQueue;
 import javadsa.StackAndQueue.stack;
 
@@ -25,7 +27,12 @@ public class StackAndQueue {
                   try {
                     stack obj = new stack();
                      obj.run();
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  }
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;
 
@@ -34,7 +41,12 @@ public class StackAndQueue {
                     javadsa.StackAndQueue.Queue obj = new javadsa.StackAndQueue.Queue();
                      obj.run();
                  
-                  } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
+                  } 
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break; 
             case 3:
@@ -42,7 +54,12 @@ public class StackAndQueue {
                     CircularQueue obj = new CircularQueue();
                       obj.run();
 
-                  } catch (Exception e) {
+                  } 
+                    catch(MyExceptionHandling me){
+                    System.out.println("Somthing Is Wrong : " + me.getMessage() + "\n Returning to Main Menu...");
+                    new MainHelper().ToStart();
+                  }
+                  catch (Exception e) {
                     System.out.println("Some thing went Wrong !");
                   }
                 break;         

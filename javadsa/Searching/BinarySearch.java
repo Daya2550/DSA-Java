@@ -3,6 +3,7 @@ package javadsa.Searching;
 import java.lang.reflect.Array;
 import java.util.Scanner;
 
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 import javadsa.Searching.HelperClasses.parent;
 import javadsa.Sorting.MergeSort;
@@ -62,7 +63,7 @@ public class BinarySearch extends parent {
 
 
 
-    public void run() {
+    public void run() throws MyExceptionHandling {
        Base base = new Base();
        base.heding("Binary Search Algorithm");
 

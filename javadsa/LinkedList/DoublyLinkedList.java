@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javadsa.LinkedList.HelperClasses.BaseLL;
 import javadsa.LinkedList.HelperClasses.ParentLL;
+import javadsa.MainHelper.MyExceptionHandling;
 import javadsa.Searching.HelperClasses.Base;
 
 public class DoublyLinkedList {
@@ -123,7 +124,7 @@ public class DoublyLinkedList {
     }
 
 
-    public void run() {
+    public void run() throws MyExceptionHandling {
         Base base = new Base();
         base.heding("Doubly Linked List Implementation");
 
@@ -156,7 +157,7 @@ public class DoublyLinkedList {
                     AddLast(dataLast);
                     break;
                 case 3:
-                     DeleteFirst();
+                    DeleteFirst();
                     break;
                 case 4:
                    DeleteLast();

@@ -2,6 +2,7 @@ package javadsa.Indexing;
 
 import java.util.Scanner;
 
+import javadsa.LinkedList.DoublyLinkedList;
 import javadsa.LinkedList.Singlylinkedlists;
 import javadsa.Sorting.BubbleSort;
 import javadsa.Sorting.MergeSort;
@@ -34,7 +35,8 @@ public class LinkedList {
 
              case 2:
                   try {
-                   choice=4;
+                   DoublyLinkedList obj = new DoublyLinkedList();
+                    obj.run();
                   } catch (Exception e) {  System.out.println("An error occurred: " + e.getMessage()); }
 
                 break;

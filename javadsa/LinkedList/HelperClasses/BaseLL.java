@@ -51,5 +51,82 @@ public class BaseLL {
                     break;
                 }}
                 while(choice!=5);  
-             }   
+             }  
+
+
+
+
+
+
+    public static void infoDoublyLinkedList() {
+
+        String definition =
+                "Definition of Doubly Linked List:\n" +
+                "A Doubly Linked List is a linear data structure where each node contains\n" +
+                "three parts: data, a reference to the previous node, and a reference to the next node.\n" +
+                "This allows traversal in both forward and backward directions.";
+
+        String timeComplexity =
+                "Time Complexity:\n" +
+                "Insertion at Beginning: O(1)\n" +
+                "Insertion at End: O(1) if tail is maintained, otherwise O(n)\n" +
+                "Deletion at Beginning: O(1)\n" +
+                "Deletion at End: O(1) if tail is maintained\n" +
+                "Searching an Element: O(n)\n" +
+                "Traversal (Forward/Backward): O(n)";
+
+        String spaceComplexity =
+                "Space Complexity:\n" +
+                "O(n) - Each node requires extra memory for storing previous and next references.";
+
+        String features =
+                "Features of Doubly Linked List:\n" +
+                "1. Two-Way Traversal: You can move forward as well as backward.\n" +
+                "2. Efficient Deletion: Deleting a specific node is easier because the previous node is directly accessible.\n" +
+                "3. Dynamic Size: The list can grow or shrink at runtime.\n" +
+                "4. Used in Applications: Browser history, undo/redo operations, navigation systems.";
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n----------------------------------------------");
+            System.out.println("1. Definition of Doubly Linked List");
+            System.out.println("2. Time Complexity");
+            System.out.println("3. Space Complexity");
+            System.out.println("4. Features");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\n" + definition);
+                    break;
+                case 2:
+                    System.out.println("\n" + timeComplexity);
+                    break;
+                case 3:
+                    System.out.println("\n" + spaceComplexity);
+                    break;
+                case 4:
+                    System.out.println("\n" + features);
+                    break;
+                case 5:
+                    System.out.println("\nExiting Doubly Linked List Information.");
+                    break;
+                default:
+                    System.out.println("\nInvalid choice. Please try again.");
+            }
+
+        } while (choice != 5);
+    }
+
+  
 }
+
+             
+             
+
+

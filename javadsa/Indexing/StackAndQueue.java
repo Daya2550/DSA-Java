@@ -1,6 +1,8 @@
 package javadsa.Indexing;
 
 import java.util.Scanner;
+
+import javadsa.StackAndQueue.CircularQueue;
 import javadsa.StackAndQueue.stack;
 
 public class StackAndQueue {
@@ -37,8 +39,8 @@ public class StackAndQueue {
                 break; 
             case 3:
                   try {
-                    javadsa.StackAndQueue.CircularQueue qe =new javadsa.StackAndQueue.CircularQueue();
-                      qe.run();
+                    CircularQueue obj = new CircularQueue();
+                      obj.run();
 
                   } catch (Exception e) {
                     System.out.println("Some thing went Wrong !");

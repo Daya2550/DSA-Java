@@ -6,97 +6,126 @@ import javadsa.LinkedList.HelperClasses.BaseLL;
 import javadsa.LinkedList.HelperClasses.ParentLL;
 import javadsa.Searching.HelperClasses.Base;
 
-
-public class Singlylinkedlists {
+public class DoublyLinkedList {
     
-Node head;
-    class Node{
+   Node head;
+   Node tail;
+
+    class Node {
         String data;
+        Node prev;
         Node next;
-        Node(String data){
-            this.data=data;
-            next =null;
+
+        Node(String data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
         }
     }
 
-     public void AddFirst(String s){
-        Node New =new Node(s);
-        if(head==null){
-            head=New;
-            return ;
-        }
-        New.next =head;
-        head=New;
-    }
-
-    public void AddLast(String s){
-         Node New =new Node(s);
-        if(head==null){
-            head=New;
-            return ;
-        }
-        Node cureeNode =head;
-        while(cureeNode.next!=null) {
-            cureeNode=cureeNode.next;
-        }
-        cureeNode.next=New;
-    }
 
 
-    public void DeleteFirst(){
-        if(head==null){
-            System.out.println("List are the Empty !");
-        }
-        Node currNode=head;
-        head=currNode.next;
-    }
-
-    public  void DeleteLast(){
-        if(head==null){
-            System.out.println("List are the Empty !");
-        }
-        if(head.next==null){
-            head=null;
+    public void AddFirst(String s) {
+        Node New = new Node(s);
+        if (head == null) {
+            head = New;
+            tail = New;
             return;
         }
-        Node currNode=head;
-        Node lastNode=head.next;
-        while(lastNode.next!=null) {
-            currNode=currNode.next;
-            lastNode=lastNode.next;
-        }
-        currNode.next=null;
+        New.next = head;
+        head.prev = New;
+        head = New;
     }
 
-    public void Display(){
-        Node cureeNode =head;
-        while(cureeNode !=null) {
-            System.out.print(cureeNode.data+"->");
-            cureeNode=cureeNode.next;
+
+    public void AddLast(String s) {
+        Node New = new Node(s);
+        if (head == null) {
+            head = New;
+            tail = New;
+            return;
+        }
+        tail.next = New;
+        New.prev = tail;
+        tail = New;
+    }
+
+
+    public void DeleteFirst() {
+        if (head == null) {
+            System.out.println("List are the Empty !");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            tail = null;
+            return;
+        }
+        head = head.next;
+        head.prev = null;
+    }
+
+
+    public void DeleteLast() {
+        if (head == null) {
+            System.out.println("List are the Empty !");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            tail = null;
+            return;
+        }
+        tail = tail.prev;
+        tail.next = null;
+    }
+
+
+    public void Display() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        Node current = head;
+        System.out.print("Doubly Linked List: ");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
         }
         System.out.println();
     }
 
-    public int size(){
-        if(head==null){
-            return 0;
-        }
-        Node cureeNode =head;
-        int count =0;
-        while(cureeNode !=null) {
-            count++;
-            cureeNode=cureeNode.next;
-        }
-        System.out.println("\nSize of Linkedlist :"+count);
-        return count;
 
+    public void DisplayReverse() {
+        if (tail == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        Node current = tail;
+        System.out.print("Doubly Linked List in Reverse: ");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        System.out.println();
     }
 
+
+    public int size() {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        System.out.println("Size of the Doubly Linked List: " + count);
+        return count;
+    }
 
 
     public void run() {
         Base base = new Base();
-        base.heding("Singly Linked List Implementation");
+        base.heding("Doubly Linked List Implementation");
 
         int choice;
         Scanner sc = new Scanner(System.in);
@@ -108,7 +137,7 @@ Node head;
             System.out.println("4. DeleteLast Element");
             System.out.println("5. Display Linked List");
             System.out.println("6. Size of Linked List");
-            System.out.println("7. Information about Singly Linked List Implementation");
+            System.out.println("7. Information about Doubly Linked List Implementation");
             System.out.println("8. Show Code Snippet");
             System.out.println("9. Exit");
          
@@ -139,12 +168,11 @@ Node head;
                      size();
                     break;
                 case 7:
-                   BaseLL baseLL = new BaseLL();
-                    baseLL.InfoSinglyLinkedList();
+                BaseLL.infoDoublyLinkedList();
                     break;
                 case 8:
-                    ParentLL p = new ParentLL();
-                    p.CodeSLL();
+                    ParentLL parentLL = new ParentLL();
+                    parentLL.CodeDLL();
 
                 break;        
                 case 9:
